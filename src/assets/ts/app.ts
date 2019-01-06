@@ -50,6 +50,8 @@ $(function(){
         twitterKeys.TOKEN_SECRET = value.TWITTER_TOKEN_SECRET;
     });
 
+    console.log(twitterKeys);
+
 });
 
 

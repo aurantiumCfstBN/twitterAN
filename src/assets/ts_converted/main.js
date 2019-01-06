@@ -54764,6 +54764,7 @@ jquery_1.default(function () {
         twitterKeys.TOKEN = value.TWITTER_TOKEN;
         twitterKeys.TOKEN_SECRET = value.TWITTER_TOKEN_SECRET;
     });
+    console.log(twitterKeys);
 });
 function runServerFun(funName, _arguments) {
     return new Promise(function (resolve, reject) {
