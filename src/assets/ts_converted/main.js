@@ -54763,7 +54763,6 @@ jquery_1.default(function () {
         twitterKeys.CONSUMER_SECRET = value.TWITTER_CONSUMER_SECRET;
         twitterKeys.TOKEN = value.TWITTER_TOKEN;
         twitterKeys.TOKEN_SECRET = value.TWITTER_TOKEN_SECRET;
-        console.log(twitterKeys);
     });
 });
 function runServerFun(funName, _arguments) {
