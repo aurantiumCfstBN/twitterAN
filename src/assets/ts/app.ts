@@ -43,7 +43,7 @@ $(function(){
 
 
 
-    handlePropertiesService(['TWITTER_CONSUMER_KEY','TWITTER_CONSUMER_SECRET','TWITTER_TOKEN','TWITTER_TOKEN_SECRET'], 'user', 'get').then(function(value){
+    handlePropertiesService(['TWITTER_CONSUMER_KEY','TWITTER_CONSUMER_SECRET','TWITTER_TOKEN','TWITTER_TOKEN_SECRET'], 'script', 'get').then(function(value){
         twitterKeys.CONSUMER_KEY = value.TWITTER_CONSUMER_KEY;
         twitterKeys.CONSUMER_SECRET = value.TWITTER_CONSUMER_SECRET;
         twitterKeys.TOKEN = value.TWITTER_TOKEN;
