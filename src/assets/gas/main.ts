@@ -8,3 +8,6 @@ function doGet() :any{
         .setSandboxMode(HtmlService.SandboxMode.IFRAME)
         .setTitle("test");
 }
+function include(filename :string) :any{
+    return HtmlService.createHtmlOutputFromFile(filename).getContent();
+}
