@@ -1,13 +1,25 @@
-import { fetchHomeTimeline } from 'twitter-api-ts';
-import * as option from 'fp-ts/lib/Option';
-import $ from 'jQuery';
+"use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const twitter_api_ts_1 = require("twitter-api-ts");
+const option = __importStar(require("fp-ts/lib/Option"));
+const jQuery_1 = __importDefault(require("jQuery"));
 var twitterKeys = {
     CONSUMER_KEY: '',
     CONSUMER_SECRET: '',
     TOKEN: '',
     TOKEN_SECRET: ''
 };
-var button = $('input[name="start"]');
+var button = jQuery_1.default('input[name="start"]');
 button.on('click', function (e) {
     if (button.val() === 'on') {
         button.val('off');
@@ -16,7 +28,7 @@ button.on('click', function (e) {
     else {
         button.val('on');
     }
-    fetchHomeTimeline({
+    twitter_api_ts_1.fetchHomeTimeline({
         oAuth: {
             consumerKey: twitterKeys.CONSUMER_KEY,
             consumerSecret: twitterKeys.CONSUMER_SECRET,
