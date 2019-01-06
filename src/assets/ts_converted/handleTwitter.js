@@ -10,9 +10,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var twitter_api_ts_1 = require("twitter-api-ts");
-var option = __importStar(require("fp-ts/lib/Option"));
-var jQuery_1 = __importDefault(require("jQuery"));
+const twitter_api_ts_1 = require("twitter-api-ts");
+const option = __importStar(require("fp-ts/lib/Option"));
+const jQuery_1 = __importDefault(require("jQuery"));
 var twitterKeys = {
     CONSUMER_KEY: '',
     CONSUMER_SECRET: '',
@@ -42,7 +42,7 @@ button.on('click', function (e) {
         // We use fp-ts’ Task type, which is lazy. Running the task returns a
         // promise.
         .run()
-        .then(function (response) {
+        .then(response => {
         console.log(response);
         // => Either<ErrorResponse, TwitterAPITimelineResponseT>
     });
