@@ -11,7 +11,7 @@ function doGet() :any{
 function include(filename :string) :any{
     return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
-function loadFun(funName :string, _arguments :any) :string{
+function loadfun(funName :string, _arguments :any) :string{
     var fun;
     eval("fun = " + funName + ";");
     if(typeof _arguments == "undefined"){
