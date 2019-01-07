@@ -35,7 +35,7 @@ function handlePropertiesServiceSet(value:any, type:string) :boolean{
     return true;
 }
 
-function handlePropertiesServiceGet(value:[string], type:string) :any{
+function handlePropertiesServiceGet(value:string[], type:string) :any{
     var properties;
     switch(type){
         case "user":
@@ -52,7 +52,7 @@ function handlePropertiesServiceGet(value:[string], type:string) :any{
     return result;
 }
 
-function handlePropertiesServiceDelete(value:[string], type:string) :boolean{
+function handlePropertiesServiceDelete(value:string[], type:string) :boolean{
     var properties;
     switch(type){
         case "user":
