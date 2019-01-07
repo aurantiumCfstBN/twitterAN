@@ -92,7 +92,7 @@ function postUpdateStatus() {
 function searchRegularly(){
   var start = new Date();
   const repeatTime = 150;
-  const runTime = 180; //sec
+  const runTime = 200; //sec
   const sleepTime = runTime * 1000 / repeatTime;  //millisec
   var result = [];
 
