@@ -91,12 +91,14 @@ function postUpdateStatus() {
 
 function searchRegularly(){
   var start = new Date();
-  const sleepTime = 30;  //sec
+  const repeatTime = 150;
+  const runTime = 180; //sec
+  const sleepTime = runTime * 1000 / repeatTime;  //millisec
   var result = [];
 
-  for(var i=0; i<15; i++){
+  for(var i=0; i<repeatTime; i++){
     result = result.concat(search());
-    Utilities.sleep(sleepTime * 1000);
+    Utilities.sleep(sleepTime);
   }
   result = result.filter((v,i,s) => {
     return s.findIndex(_v => {
