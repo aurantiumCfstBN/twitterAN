@@ -94,6 +94,16 @@ function postUpdateStatus() {
 }
 
 function runByEventTrigger(){
+  var startHour = 15;
+  var endHour = 18;
+
+
+  var now = new Date();
+
+  if(now.getHours() < startHour || now.getHours() > endHour){
+    return;
+  }
+
   var key = handlePropertiesServiceGet([
     'TWITTER_CONSUMER_KEY',
     'TWITTER_CONSUMER_SECRET',
@@ -118,14 +128,17 @@ function runByEventTrigger(){
 function searchRegularly(_twitterService,_outputFolder){
   if(_twitterService == null)  _twitterService = twitter;
   if(_outputFolder == null)  _outputFolder = outputFolder;
-  const repeatTime = 9;
-  const runTime = 50; //sec
+  const repeatTime = 40;
+  const runTime = 250; //sec
   const sleepTime = runTime * 1000 / repeatTime;  //millisec
   var result = [];
+  var start = (new Date()).getTime();
 
   for(var i=0; i<repeatTime; i++){
+    while((new Date()).getTime() - start < sleepTime*(i-1)){
+      Utilities.sleep(100);
+    }
     result = result.concat(search(_twitterService));
-    Utilities.sleep(sleepTime);
   }
   result = result.filter((v,i,s) => {
     return s.findIndex(_v => {
