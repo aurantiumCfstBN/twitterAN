@@ -135,16 +135,17 @@ function searchRegularly(_twitterService,_outputFolder){
   var start = (new Date()).getTime();
 
   for(var i=0; i<repeatTime; i++){
-    while((new Date()).getTime() - start < sleepTime*(i-1)){
+    while((new Date()).getTime() - start < sleepTime*i){
       Utilities.sleep(100);
     }
-    result = result.concat(search(_twitterService));
-  }
-  result = result.filter((v,i,s) => {
-    return s.findIndex(_v => {
-      return v.id === _v.id;
-    }) === i;
-  });
+    result = result
+      .concat(search(_twitterService))
+      .filter((v,i,s) => {
+        return s.findIndex(_v => {
+          return v.id === _v.id;
+        }) === i;
+      });
+    }
 
   var d = new Date();
   var fileName = [
