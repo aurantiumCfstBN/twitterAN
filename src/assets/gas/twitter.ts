@@ -101,8 +101,10 @@ function runByEventTrigger(){
   var now = new Date();
 
   if(now.getHours() < startHour || now.getHours() > endHour){
+    console.log("out of time");
     return;
   }
+  console.log("start runByEventTrigger");
 
   var key = handlePropertiesServiceGet([
     'TWITTER_CONSUMER_KEY',
@@ -134,6 +136,7 @@ function searchRegularly(_twitterService,_outputFolder){
   var result = [];
   var start = (new Date()).getTime();
 
+  console.log("post httpRequest");
   for(var i=0; i<repeatTime; i++){
     while((new Date()).getTime() - start < sleepTime*i){
       Utilities.sleep(100);
@@ -146,7 +149,11 @@ function searchRegularly(_twitterService,_outputFolder){
         }) === i;
       });
     }
-
+    (function(){
+      var _t = (new Date()).getTime();
+      console.log("save");
+      console.log("time : " + (_t - start));
+    })();
   var d = new Date();
   var fileName = [
     "searchPs_",
